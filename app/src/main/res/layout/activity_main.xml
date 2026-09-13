@@ -1,0 +1,97 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OneState Staging Automation Tester v0.2.0"
+            android:textStyle="bold"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AUTHORIZED STAGING / TEST ACCOUNT ONLY • No stealth / anti-cheat bypass"/>
+
+        <Switch android:id="@+id/swMaster" android:text="Master Automation" android:checked="false"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Switch android:id="@+id/swDetect" android:text="Vision detector" android:checked="true"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Switch android:id="@+id/swMove" android:text="Auto movement" android:checked="true"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Switch android:id="@+id/swAutoContinue" android:text="Auto Continue popup" android:checked="false"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Switch android:id="@+id/swStopOneRound" android:text="Stop after one completed round" android:checked="false"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Switch android:id="@+id/swDryRun" android:text="Dry Run (detect/log only)" android:checked="true"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Arrival wait (ms)" android:layout_marginTop="12dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/edWait" android:text="3000" android:inputType="number"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Control interval (ms)" android:layout_marginTop="8dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/edInterval" android:text="350" android:inputType="number"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Steering dead-zone (% screen width)" android:layout_marginTop="8dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/edDeadPct" android:text="7" android:inputType="number"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Arrival marker Y threshold (%)" android:layout_marginTop="8dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/edArrivalY" android:text="67" android:inputType="number"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Marker lost timeout (ms)" android:layout_marginTop="8dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/edLost" android:text="2500" android:inputType="number"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Joystick center X %, Y %, Radius %" android:layout_marginTop="8dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <EditText android:id="@+id/edJoyX" android:text="12" android:inputType="number"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/edJoyY" android:text="82" android:inputType="number"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/edJoyR" android:text="8" android:inputType="number"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <TextView android:text="Continue button fallback X %, Y %" android:layout_marginTop="8dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <EditText android:id="@+id/edContX" android:text="21" android:inputType="number"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/edContY" android:text="35" android:inputType="number"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <Button android:id="@+id/btnOverlayPermission" android:text="1. Allow Overlay"
+            android:layout_marginTop="16dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnAccessibility" android:text="2. Enable Accessibility Service"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnCapture" android:text="3. Start Screen Capture + Overlay"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnStopService" android:text="Stop Service"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:id="@+id/txtStatus" android:text="Status: idle"
+            android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>
