@@ -1,4 +1,3 @@
-
 package com.example.onestatestaging
 
 import android.os.Handler
@@ -27,13 +26,14 @@ class AutomationEngine(
     fun onFrame(target:Target?, cont:ContinueButton?) {
         if(!cfg.master || state==AutoState.OFF || state==AutoState.PAUSED) return
         val now=System.currentTimeMillis()
+        val dryTag = if (cfg.dryRun) "[DRY]" else ""
 
         if(cont!=null && cont.score>0.2f) {
             if(cfg.autoContinue) {
                 state=AutoState.CONTINUE
                 val x=if(cont.x>0) cont.x else screenW()*cfg.contXPct/100
                 val y=if(cont.y>0) cont.y else screenH()*cfg.contYPct/100
-                log("CONTINUE popup ${if(cfg.dryRun)"[DRY]":""}")
+                log("CONTINUE popup $dryTag")
                 if(!cfg.dryRun) TestAccessibilityService.instance?.tap(x.toFloat(),y.toFloat())
                 rounds++
                 if(cfg.stopOneRound) { stop(); return }
@@ -88,7 +88,8 @@ class AutomationEngine(
         var tx=joyX + nx*r
         if(abs(dx)<dead) tx=joyX
         val ty=joyY-r
-        log("MOVE x=${target.x} y=${target.y} purple=${"%.3f".format(target.purpleNear)} ${if(cfg.dryRun)"[DRY]":""}")
+        val purpleText = "%.3f".format(target.purpleNear)
+        log("MOVE x=${target.x} y=${target.y} purple=$purpleText $dryTag")
         if(!cfg.dryRun) TestAccessibilityService.instance?.swipeHold(joyX,joyY,tx,ty,cfg.intervalMs)
     }
 }
