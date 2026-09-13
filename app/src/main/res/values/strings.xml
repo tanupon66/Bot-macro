@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Staging Auto Test</string>
+    <string name="accessibility_service_desc">Authorized staging-only test input service</string>
+</resources>
